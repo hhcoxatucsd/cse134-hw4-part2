@@ -14,6 +14,30 @@
 </head>
 
 <body>
+  <form>
+    <legend>HW4 Part 2 - Custom Elements, LocalStorage, and Fetch</legend>
+    <fieldset>
+      <label for="getLocal">Fetch Project Cards from Local Storage</label>
+      <input type="button" id="getLocal" value="Load Local">
+      <hr>
+      <label for="getRemote">Fetch Project Cards from Remote Server</label>
+      <input type="button" id="getRemote" value="Load Remote">
+    </fieldset>
+  </form>
+  <output></output>
+  <template id="projectCardTemplate">
+    <h2>Project Card Title</h2>
+    <slot name="picture">
+      <picture>
+        <img src="image" alt="Project Card Image">
+      </picture>
+    </slot>
+    <slot name="description-override">
+      <p>Project Card Description</p>
+    </slot>
+    <a href="http://example.com">Read More</a>
+  </template>
+  <script src="script.js"></script>
   <!--
       This page will contain a list of cards which will contain cards that overview each project in 
       your portfolio. You will dynamically create these cards as CustomElements using JavaScript 
