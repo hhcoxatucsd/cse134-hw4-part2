@@ -1,0 +1,12 @@
+:root {
+    --projectCard-background-color: #EEE;
+    --projectCard-paragraph-width: 40em;
+    --projectCard-text-align: center;
+}
+
+output {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}

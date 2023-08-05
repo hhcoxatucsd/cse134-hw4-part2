@@ -11,6 +11,8 @@
       for the customElement vs the page layout and CRUD actions if you do them. Regardless of 
       what you do you use ES modules and vanilla JS.
     -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css.css">
 </head>
 
 <body>
@@ -26,16 +28,18 @@
   </form>
   <output></output>
   <template id="projectCardTemplate">
-    <h2>Project Card Title</h2>
-    <slot name="picture">
-      <picture>
-        <img src="image" alt="Project Card Image">
-      </picture>
-    </slot>
-    <slot name="description-override">
-      <p>Project Card Description</p>
-    </slot>
-    <a href="http://example.com">Read More</a>
+    <article>
+      <h2>Project Card Title</h2>
+      <slot name="picture">
+        <picture>
+          <img src="image" alt="Project Card Image">
+        </picture>
+      </slot>
+      <slot name="description-override">
+        <p>Project Card Description</p>
+      </slot>
+      <a href="http://example.com">Read More</a>
+    </article>
   </template>
   <script src="script.js"></script>
   <!--

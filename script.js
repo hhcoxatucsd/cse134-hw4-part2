@@ -5,6 +5,7 @@ class projectCard extends HTMLElement {
     connectedCallback() {
         let cardContent = document.getElementById('projectCardTemplate').content.cloneNode(true);
 
+
         if (this.dataset.title != null)
             cardContent.querySelector('h2').textContent = this.dataset.title;
         if (this.dataset.img != null)
@@ -15,6 +16,10 @@ class projectCard extends HTMLElement {
             cardContent.querySelector('a').href = this.dataset.link;
 
         this.attachShadow({mode:'open'}).appendChild(cardContent);
+        this.shadowRoot.children[0].style.backgroundColor = 'var(--projectCard-background-color)';
+        this.shadowRoot.children[0].style.maxInlineSize = 'var(--projectCard-paragraph-width)';
+        this.shadowRoot.children[0].style.textAlign = 'var(--projectCard-text-align)';
+        this.shadowRoot.querySelector('img').style.width = "100%";
     }
 
 }
@@ -25,7 +30,7 @@ document.getElementById('getLocal').addEventListener('click', function () {getLo
 document.getElementById('getRemote').addEventListener('click', function () {getRemote();});
 
 // Default for LocalStorage
-localStorage.setItem('projectCards', `[{"title":"Example A"},{"title":"Example B","img":"https://source.unsplash.com/480x480/","description":"This project card loaded from local storage.","link":"https://ヘンリー・コックス.tk/"},{"title":"Example C","img":"https://source.unsplash.com/640x480/","description-override":"<h3 slot='description-override'>Override using <code>&ltslot&gt</code> tag</h3>","link":"https://ヘンリー・コックス.tk/"}]`);
+localStorage.setItem('projectCards', `[{"title":"Example A"},{"title":"Example B","img":"https://source.unsplash.com/500x500/","description":"This project card loaded from local storage.","link":"https://ヘンリー・コックス.tk/"},{"title":"Example C","img":"https://source.unsplash.com/720x640/","description-override":"<h3 slot='description-override'>Override using <code>&ltslot&gt</code> tag</h3>","link":"https://ヘンリー・コックス.tk/"}]`);
 
 function getLocal() {
     document.querySelector('output').innerHTML = null;
