@@ -35,9 +35,9 @@ function getLocal() {
 function getRemote() {
     document.querySelector('output').innerHTML = null;
     fetch(new Request("https://my-json-server.typicode.com/hhcoxatucsd/cse134-hw4-part2/cards"), {method: "GET"})
-        .then((response) => response.text())
-        .then ((text) => {
-            JSON.parse(text).forEach(card => createCards(card));
+        .then((response) => response.json())
+        .then ((data) => {
+            data.forEach(card => createCards(card));
         });
 }
 
